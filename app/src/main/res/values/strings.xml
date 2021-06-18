@@ -13,5 +13,8 @@
     <string name="rating">Rating</string>
     <string name="count">Vote Count</string>
     <string name="cast">Cast</string>
+    <string name="favorite_movies_list">Favorite Movies List</string>
+    <string name="clear_favorite">Clear Favorite List</string>
+    <string name="set_default_category">Set Default Movie Category</string>
 
 </resources>
