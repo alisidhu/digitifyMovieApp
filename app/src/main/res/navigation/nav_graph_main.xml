@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.movieapp.diditify.ui.MoviesFragment"
+        android:label="@string/movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.movieapp.diditify.ui.MovieDetailFragment"
+        android:label="@string/movies_detail"
+        tools:layout="@layout/fragment_movie_detail" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.movieapp.diditify.ui.SettingFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/favoriteMoviesFragment"
+        android:name="com.movieapp.diditify.ui.FavoriteMoviesFragment"
+        android:label="@string/favourites"
+        tools:layout="@layout/fragment_favorite_movies" />
+</navigation>
