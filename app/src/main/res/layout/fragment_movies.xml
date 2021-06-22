@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context=".ui.MoviesFragment">
+    tools:context="com.movieapp.diditify.ui.MoviesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:id="@+id/tvExplore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:text="@string/explore"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -75,8 +75,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/mcvSearch"
             app:layout_constraintTop_toBottomOf="@+id/tvExplore"
-            app:spanCount="3"
-            tools:itemCount="5"
+            app:spanCount="4"
+            tools:itemCount="4"
             tools:listitem="@layout/rv_category_chip_view" />
 
         <TextView

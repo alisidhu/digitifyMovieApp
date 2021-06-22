@@ -2,7 +2,9 @@ package com.movieapp.diditify.ui
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
 import com.movieapp.diditify.R.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 
 class SettingFragment : PreferenceFragmentCompat() {
 
