@@ -9,7 +9,7 @@
         android:id="@+id/moviesFragment"
         android:name="com.movieapp.diditify.fragments.movies.MoviesListFragment"
         android:label="@string/movies"
-        tools:layout="@layout/fragment_movies_list" >
+        tools:layout="@layout/fragment_movies_list">
         <action
             android:id="@+id/action_moviesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/movieDetailFragment"
         android:name="com.movieapp.diditify.fragments.movieDetails.MovieDetailFragment"
         android:label="@string/movies_detail"
-        tools:layout="@layout/fragment_movie_detail" >
+        tools:layout="@layout/fragment_movie_detail">
         <argument
             android:name="movie"
             app:argType="com.movieapp.diditify.models.Movie" />
@@ -28,6 +28,14 @@
         android:name="com.movieapp.diditify.fragments.SettingFragment"
         android:label="@string/setting"
         tools:layout="@layout/fragment_setting" />
-
+    <fragment
+        android:id="@+id/favoriteMoviesFragment"
+        android:name="com.movieapp.diditify.fragments.favorites.FavoriteMoviesFragment"
+        android:label="@string/favourites"
+        tools:layout="@layout/fragment_favorite_movies">
+        <action
+            android:id="@+id/action_favoriteMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
 
 </navigation>

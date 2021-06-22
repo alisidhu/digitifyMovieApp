@@ -50,12 +50,14 @@ constructor(
         }
     }
 
-    fun getFavMovieStatus(){
+    fun getFavMovieStatus()  {
         viewModelScope.launch {
             if (movie != null) {
                 val favStatus = repository.checkFaveMovieStatus(id = movieId)
                 favMovieUiState.value = FavMovieUiState.FavStatus(favStatus)
+
             }
+
         }
     }
 

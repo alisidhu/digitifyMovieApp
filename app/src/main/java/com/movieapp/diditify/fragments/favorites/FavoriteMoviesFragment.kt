@@ -69,7 +69,11 @@ class FavoriteMoviesFragment : Fragment() {
         binding.pbMovies.visibility = View.GONE
 
         val adapter = FavMoviesAdapter(favMoviesInfo, MovieItemClickListener {
-
+            findNavController().navigate(
+                FavoriteMoviesFragmentDirections.actionFavoriteMoviesFragmentToMovieDetailFragment(
+                    it
+                )
+            )
         })
         binding.rvMoviesList.adapter = adapter
 

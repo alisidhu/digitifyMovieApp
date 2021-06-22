@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.movieapp.diditify.R
 import com.movieapp.diditify.adapter.cast.CastAdapter
 import com.movieapp.diditify.adapter.cast.CastItemClickListener
+import com.movieapp.diditify.adapter.setImage
 import com.movieapp.diditify.databinding.FragmentMovieDetailBinding
 import com.movieapp.diditify.models.Movie
 import com.movieapp.diditify.models.MovieCast
@@ -47,6 +48,7 @@ class MovieDetailFragment : Fragment() {
                 FavMovieUiState.FavAdded -> favMovieAdded()
                 is FavMovieUiState.FavStatus -> favMovieStatus(it.isFav)
                 FavMovieUiState.FavRemoved -> favMovieRemoved()
+
             }
         }
 
@@ -57,6 +59,7 @@ class MovieDetailFragment : Fragment() {
             } else {
                 //adding movie as fav
                 viewModel.addFavMovie()
+
             }
         }
 
@@ -67,18 +70,32 @@ class MovieDetailFragment : Fragment() {
 
     private fun favMovieStatus(fav: Boolean) {
         isMovieFav = fav
+        setFavoriteIcon(isMovieFav)
+
     }
 
     private fun favMovieAdded() {
         Toast.makeText(requireContext(), "Movie Saved as Favourite", Toast.LENGTH_SHORT)
             .show()
         isMovieFav = true
+
+        setFavoriteIcon(isMovieFav)
     }
 
     private fun favMovieRemoved() {
         Toast.makeText(requireContext(), "Movie Removed from Favourites", Toast.LENGTH_SHORT)
             .show()
         isMovieFav = false
+        setFavoriteIcon(isMovieFav)
+
+    }
+
+    private fun setFavoriteIcon(isMovieFav: Boolean) {
+        if (isMovieFav)
+            binding.fabFavorite.setImage(R.drawable.ic_baseline_favorite_24)
+        else
+            binding.fabFavorite.setImage(R.drawable.ic_baseline_favorite_border_24)
+
     }
 
     private fun checkFavMovieStatus() {

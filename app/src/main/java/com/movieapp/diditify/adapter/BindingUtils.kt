@@ -27,13 +27,17 @@ fun TextView.setMovieYear(releaseDate: String?) {
 @BindingAdapter("poster")
 fun ImageView.setPoster(fullPosterPath: String?) {
 
-    fullPosterPath?.let {
-        Glide.with(this).load(it).error(R.drawable.no_image_portrait).into(this)
+    try {
+        fullPosterPath?.let {
+            Glide.with(this).load(it).error(R.drawable.no_image_portrait).into(this)
+        }
+    } catch (e: Exception) {
+        e.message
     }
 }
 
 @BindingAdapter("loadImage")
-fun ImageView.setImage(image: String?) {
+fun ImageView.setImage(image: Int) {
 
     image?.let {
         Glide.with(this).load(it).into(this)
