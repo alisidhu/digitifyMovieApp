@@ -2,27 +2,24 @@ package com.movieapp.diditify.fragments.movies
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.IBinder
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.movieapp.diditify.R
 import com.movieapp.diditify.adapter.loadstate.LoadStateAdapter
 import com.movieapp.diditify.adapter.movie.MovieItemClickListener
@@ -70,6 +67,7 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         initComponents()
 
         if (lastResult == null) {
@@ -80,6 +78,8 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
             }
         }
     }
+
+
 
     private fun fetchMovies(category: String) {
         lifecycleScope.launch {
@@ -97,6 +97,7 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
         initChipGroup()
         initSearch()
         initAdapter()
+        setViewOnLandscape()
         binding.btnRetry.setOnClickListener { listAdapter.retry() }
     }
 
@@ -204,4 +205,18 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
     }
 
 
+    private fun setViewOnLandscape(){
+        val currentOrientation = resources.configuration.orientation
+
+        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            binding.tvExplore.visibility = View.GONE
+            binding.chipGroup.visibility = View.GONE
+            binding.mcvSearch.visibility = View.GONE
+        } else {
+            binding.tvExplore.visibility = View.VISIBLE
+            binding.chipGroup.visibility = View.VISIBLE
+            binding.mcvSearch.visibility = View.VISIBLE
+
+        }
+    }
 }

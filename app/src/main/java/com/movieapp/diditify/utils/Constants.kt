@@ -27,3 +27,5 @@ const val DEFAULT_LANGUAGE = "en-US"
 const val MOVIES_LIST_STARTING_PAGE = 1
 const val CALENDAR_PATTERN = "yyyy-MM-dd"
 const val CALENDAR_YEAR_PATTERN = "yyyy"
+const val POSTER_URL = "http://image.tmdb.org/t/p/w342"
+const val BACK_DROP_URL = "http://image.tmdb.org/t/p/w780"

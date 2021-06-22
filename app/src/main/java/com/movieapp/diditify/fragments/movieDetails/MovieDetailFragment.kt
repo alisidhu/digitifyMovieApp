@@ -119,9 +119,11 @@ class MovieDetailFragment : Fragment() {
 
         binding.movie = movie
         binding.executePendingBindings()
+        setAnimation(Fade().InDown(binding.fabFavorite))
         setAnimation(Zoom().InUp(binding.ivPosterPic))
         setAnimation(Slide().InUp(binding.ivPoster))
-        setAnimation(Slide().InLeft(binding.llMain))
+        setAnimation(Slide().InDown(binding.llMain))
+        viewDetailClick()
         viewModel.getMovieCast().observe(viewLifecycleOwner, {
             it?.let { castMembers ->
                 if (castMembers.isNotEmpty()) {
@@ -140,14 +142,33 @@ class MovieDetailFragment : Fragment() {
         })
     }
 
+    private fun viewDetailClick(){
+        binding.btnViewDetail.setOnClickListener {
+            binding.llCastView.visibility = View.GONE
+            binding.llDetailView.visibility = View.VISIBLE
+
+            binding.ivPoster.visibility = View.VISIBLE
+            binding.ivPosterPic.visibility = View.VISIBLE
+            binding.fabFavorite.visibility = View.VISIBLE
+            setAnimation(Slide().InDown(binding.clMainView))
+
+        }
+    }
     private fun initAdapters() {
         binding.rvCast.hasFixedSize()
 
         binding.rvCast.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
         castAdapter = CastAdapter(CastItemClickListener {
-            Toast.makeText(requireContext(), (it as MovieCast).name, Toast.LENGTH_SHORT).show()
+            binding.cast = it as MovieCast
+            binding.llCastView.visibility = View.VISIBLE
+            binding.llDetailView.visibility = View.GONE
+            binding.ivPoster.visibility = View.GONE
+            binding.ivPosterPic.visibility = View.GONE
+            binding.fabFavorite.visibility = View.GONE
+            setAnimation(Slide().InUp(binding.llCastView))
+
+            // Toast.makeText(requireContext(), (it as MovieCast).name, Toast.LENGTH_SHORT).show()
         })
 
         binding.rvCast.adapter = castAdapter

@@ -134,12 +134,13 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
+
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="@+id/mcvSearch"
             app:layout_constraintTop_toBottomOf="@+id/tvMoviesList"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/mcvSearch"
-            app:spanCount="3"
+            app:spanCount="2"
             tools:itemCount="7"
             tools:listitem="@layout/rv_movie_list_item" />
 

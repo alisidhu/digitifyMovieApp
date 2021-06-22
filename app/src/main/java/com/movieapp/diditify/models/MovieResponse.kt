@@ -3,8 +3,8 @@ package com.movieapp.diditify.models
 
 data class MovieResponse(
 
-    val page: Int,
-     val total_results: Int,
-    val total_pages: Int,
+    val page: Int? =0,
+     val total_results: Int? = 0,
+    val total_pages: Int? = 0,
     val results: List<Movie>
 )

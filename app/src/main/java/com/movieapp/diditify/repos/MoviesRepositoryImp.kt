@@ -49,7 +49,7 @@ class MoviesRepositoryImp @Inject constructor(
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
-                MoviesListPagingSource(
+                MoviesListPaging(
                     service,
                     category,
                     language
@@ -64,7 +64,7 @@ class MoviesRepositoryImp @Inject constructor(
             enablePlaceholders = false
         ),
             pagingSourceFactory = {
-                MovieSearchPagingSource(
+                SearchMoviePaging(
                     query,
                     service
                 )

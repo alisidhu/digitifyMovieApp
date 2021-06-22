@@ -51,5 +51,7 @@
     <string name="no_movies_error">Unable to load data!\nTry again</string>
     <string name="popularity">Popularity</string>
     <string name="language">Language</string>
+    <string name="actual_name">Actual Name</string>
+    <string name="character_name">Character Name</string>
 
 </resources>

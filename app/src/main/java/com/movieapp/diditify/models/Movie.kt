@@ -3,6 +3,8 @@ package com.movieapp.diditify.models
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.movieapp.diditify.utils.BACK_DROP_URL
+import com.movieapp.diditify.utils.POSTER_URL
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -23,9 +25,9 @@ data class Movie(
     var release_date: String? = ""
 ) : Parcelable {
     val fullPosterPath: String
-        get() = "http://image.tmdb.org/t/p/w342$poster_path"
+        get() = POSTER_URL.plus(poster_path)
     val fullBackDropPath: String
-        get() = "http://image.tmdb.org/t/p/w780$backdrop_path"
+        get() = BACK_DROP_URL.plus(backdrop_path)
 }
 
 @Entity(tableName = "movie_info")

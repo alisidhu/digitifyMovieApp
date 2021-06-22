@@ -1,5 +1,7 @@
 package com.movieapp.diditify.models
 
+import com.movieapp.diditify.utils.POSTER_URL
+
 
 data class MovieCast(
 
@@ -13,5 +15,5 @@ data class MovieCast(
     val profile_path: String?
 ) {
     val fullProfilePath: String
-        get() = "http://image.tmdb.org/t/p/w342$profile_path"
+        get() = POSTER_URL.plus(profile_path)
 }
