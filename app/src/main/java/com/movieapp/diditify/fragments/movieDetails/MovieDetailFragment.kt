@@ -1,5 +1,6 @@
 package com.movieapp.diditify.fragments.movieDetails
 
+import android.animation.AnimatorSet
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.movieapp.diditify.models.Movie
 import com.movieapp.diditify.models.MovieCast
 import com.movieapp.diditify.utils.FavMovieUiState
 import dagger.hilt.android.AndroidEntryPoint
+import render.animations.*
 
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
@@ -79,13 +81,19 @@ class MovieDetailFragment : Fragment() {
             .show()
         isMovieFav = true
 
+        setAnimation(Zoom().InUp(binding.fabFavorite))
+
+        setFavoriteIcon(isMovieFav)
         setFavoriteIcon(isMovieFav)
     }
+
 
     private fun favMovieRemoved() {
         Toast.makeText(requireContext(), "Movie Removed from Favourites", Toast.LENGTH_SHORT)
             .show()
         isMovieFav = false
+        setAnimation(Rotate().OutUpRight(binding.fabFavorite))
+        setAnimation(Rotate().In(binding.fabFavorite))
         setFavoriteIcon(isMovieFav)
 
     }
@@ -97,7 +105,12 @@ class MovieDetailFragment : Fragment() {
             binding.fabFavorite.setImage(R.drawable.ic_baseline_favorite_border_24)
 
     }
+    private fun setAnimation(animatorSet: AnimatorSet){
+        val render = Render(requireContext())
 
+        render.setAnimation(animatorSet)
+        render.start()
+    }
     private fun checkFavMovieStatus() {
         viewModel.getFavMovieStatus()
     }

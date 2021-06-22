@@ -106,5 +106,7 @@ dependencies {
 
     // CircleImageView
     implementation "de.hdodenhof:circleimageview:$circle_image_version"
+    //https://github.com/gayanvoice/android-animations-kotlin animation
+    implementation 'com.github.gayanvoice:android-animations-kotlin:1.0.1'
 
 }
