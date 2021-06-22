@@ -119,7 +119,9 @@ class MovieDetailFragment : Fragment() {
 
         binding.movie = movie
         binding.executePendingBindings()
-
+        setAnimation(Zoom().InUp(binding.ivPosterPic))
+        setAnimation(Slide().InUp(binding.ivPoster))
+        setAnimation(Slide().InLeft(binding.llMain))
         viewModel.getMovieCast().observe(viewLifecycleOwner, {
             it?.let { castMembers ->
                 if (castMembers.isNotEmpty()) {

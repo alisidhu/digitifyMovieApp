@@ -38,6 +38,16 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@tools:sample/avatars" />
 
+                <ImageView
+                    android:id="@+id/ivPosterPic"
+                    android:layout_width="140dp"
+                    poster="@{movie.fullPosterPath}"
+                    android:layout_marginTop="10dp"
+                    tools:src="@tools:sample/avatars"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintBottom_toTopOf="@id/llMain"
+                    app:layout_constraintStart_toStartOf="parent"/>
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fabFavorite"
                     android:layout_width="wrap_content"

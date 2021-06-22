@@ -27,6 +27,7 @@ import com.movieapp.diditify.R
 import com.movieapp.diditify.adapter.loadstate.LoadStateAdapter
 import com.movieapp.diditify.adapter.movie.MovieItemClickListener
 import com.movieapp.diditify.adapter.movie.MovieListAdapter
+import com.movieapp.diditify.base.BaseFragment
 import com.movieapp.diditify.databinding.FragmentMoviesListBinding
 import com.movieapp.diditify.models.Movie
 import com.movieapp.diditify.utils.*
@@ -36,9 +37,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MoviesListFragment : Fragment() {
+class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
 
-    private lateinit var binding: FragmentMoviesListBinding
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMoviesListBinding
+        get() = FragmentMoviesListBinding::inflate
+
     private val viewModel: MoviesListViewModel by viewModels()
     private lateinit var listAdapter: MovieListAdapter
     private lateinit var searchCategory: String
@@ -46,16 +49,11 @@ class MoviesListFragment : Fragment() {
     @Inject
     lateinit var preferences: SharedPreferences
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentMoviesListBinding.inflate(inflater, container, false)
+
+
+    override fun initViews() {
         searchCategory = preferences.getString(MOVIE_CATEGORY_KEY, MOVIE_CATEGORY_DEFAULT)!!
         setupActionBarTitle(searchCategory)
-        return binding.root
     }
 
     private fun setupActionBarTitle(searchCategory: String) {
@@ -204,5 +202,6 @@ class MoviesListFragment : Fragment() {
             }
         }
     }
+
 
 }
