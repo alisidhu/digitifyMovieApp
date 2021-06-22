@@ -8,7 +8,24 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.movieapp.diditify.R
 import com.movieapp.diditify.utils.Utils
+@BindingAdapter("overviewText")
+fun TextView.setOverView(msg: String?) {
 
+    msg?.let {
+        text = if (it.isNotEmpty()) it else context.getString(R.string.overview_error)
+    }
+}
+@BindingAdapter("poster")
+fun ImageView.setPoster(fullPosterPath: String?) {
+
+    try {
+        fullPosterPath?.let {
+            Glide.with(this).load(it).error(R.drawable.no_image_portrait).into(this)
+        }
+    } catch (e: Exception) {
+        e.message
+    }
+}
 @BindingAdapter("year")
 fun TextView.setMovieYear(releaseDate: String?) {
     if (releaseDate == null) {
@@ -24,17 +41,7 @@ fun TextView.setMovieYear(releaseDate: String?) {
     }
 }
 
-@BindingAdapter("poster")
-fun ImageView.setPoster(fullPosterPath: String?) {
 
-    try {
-        fullPosterPath?.let {
-            Glide.with(this).load(it).error(R.drawable.no_image_portrait).into(this)
-        }
-    } catch (e: Exception) {
-        e.message
-    }
-}
 
 @BindingAdapter("loadImage")
 fun ImageView.setImage(image: Int) {
@@ -52,10 +59,3 @@ fun ImageView.setItemImage(fullProfilePath: String?) {
     }
 }
 
-@BindingAdapter("overviewText")
-fun TextView.setOverView(msg: String?) {
-
-    msg?.let {
-        text = if (it.isNotEmpty()) it else context.getString(R.string.overview_error)
-    }
-}
