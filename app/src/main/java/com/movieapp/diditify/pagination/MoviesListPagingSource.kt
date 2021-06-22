@@ -31,7 +31,7 @@ class MoviesListPagingSource(
 
             val movies = if (category == UPCOMING_CATEGORY) {
                 response.results.filter {
-                    it.release_date >= getCurrentDate()
+                    it.release_date!! >= getCurrentDate()
                 }
             } else {
                 response.results

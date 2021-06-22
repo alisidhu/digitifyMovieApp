@@ -7,26 +7,27 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.movieapp.diditify.ui.MoviesFragment"
+        android:name="com.movieapp.diditify.fragments.movies.MoviesListFragment"
         android:label="@string/movies"
-        tools:layout="@layout/fragment_movies" >
+        tools:layout="@layout/fragment_movies_list" >
         <action
             android:id="@+id/action_moviesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.movieapp.diditify.ui.MovieDetailFragment"
+        android:name="com.movieapp.diditify.fragments.movieDetails.MovieDetailFragment"
         android:label="@string/movies_detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movie"
+            app:argType="com.movieapp.diditify.models.Movie" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.movieapp.diditify.ui.SettingFragment"
+        android:name="com.movieapp.diditify.fragments.SettingFragment"
         android:label="@string/setting"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/favoriteMoviesFragment"
-        android:name="com.movieapp.diditify.ui.FavoriteMoviesFragment"
-        android:label="@string/favourites"
-        tools:layout="@layout/fragment_favorite_movies" />
+
+
 </navigation>

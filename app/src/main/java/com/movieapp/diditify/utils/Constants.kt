@@ -18,8 +18,12 @@ const val DATA_VIEW_TYPE = 1
 const val MOVIE_VIEW_TYPE = 0
 const val PAGE_SIZE = 20
 
+const val MOVIE_CATEGORY_KEY = "movie_list_category"
+const val MOVIE_CATEGORY_DEFAULT = POPULAR_CATEGORY
+
 const val LANGUAGE = "language"
 const val DEFAULT_LANGUAGE = "en-US"
 
 const val MOVIES_LIST_STARTING_PAGE = 1
 const val CALENDAR_PATTERN = "yyyy-MM-dd"
+const val CALENDAR_YEAR_PATTERN = "yyyy"

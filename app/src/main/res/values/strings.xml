@@ -17,6 +17,7 @@
     <string name="clear_favorite">Clear Favorite List</string>
     <string name="set_default_category">Set Default Movie Category</string>
     <string name="default_category">Default Movies Category</string>
+    <string name="overview_error">Overview is currently unavailable.</string>
 
     <string name="favourites">Favourites</string>
     <string name="movies">Movies</string>
@@ -42,4 +43,13 @@
         <item>upcoming</item>
         <item>top_rated</item>
     </string-array>
+
+    <string name="cast_error">Unable to show Cast</string>
+    <string name="empty_movie_name">Movie name cannot be empty.</string>
+    <string name="delete_favourites">Delete Favourites</string>
+    <string name="retry">Retry</string>
+    <string name="no_movies_error">Unable to load data!\nTry again</string>
+    <string name="popularity">Popularity</string>
+    <string name="language">Language</string>
+
 </resources>

@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 30
@@ -31,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -47,7 +51,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
     // ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
@@ -55,6 +58,15 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptor_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -71,16 +83,19 @@ dependencies {
     //kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:2.31.2-alpha"
 
-
-
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_ext_version"
     // When using Kotlin.
     kapt "androidx.hilt:hilt-compiler:$hilt_ext_version"
 
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Kotlin
+    implementation "androidx.preference:preference-ktx:$preference_version"
+
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
@@ -89,19 +104,7 @@ dependencies {
     // Paging
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
-
     // CircleImageView
     implementation "de.hdodenhof:circleimageview:$circle_image_version"
 
-
-    // Play Core Library
-    implementation "com.google.android.play:core:$play_version"
-    // preference
-    implementation "androidx.preference:preference-ktx:$preference_version"
-
-    // Room
-    implementation "androidx.room:room-runtime:$room_version"
-
-    // Timber
-    implementation "com.jakewharton.timber:timber:$timber_version"
 }
