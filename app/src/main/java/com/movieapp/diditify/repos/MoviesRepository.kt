@@ -10,18 +10,21 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface MoviesRepository {
-    suspend fun saveFavMovie(favMovie: FavMovie)
-    suspend fun removeFavMovie(favMovie: FavMovie)
-    suspend fun getAllFavMovies(): List<FavMovie>
-    suspend fun checkFaveMovieStatus(id: Int): Boolean
-    suspend fun clearFavourites()
     fun getMovieList(category: String?, language: String?):
             Flow<PagingData<Movie>>
 
     fun queryMovieList(query: String):
             Flow<PagingData<Movie>>
 
+    suspend fun saveFavMovie(favMovie: FavMovie)
+    suspend fun removeFavMovie(favMovie: FavMovie)
+    suspend fun getAllFavMovies(): List<FavMovie>
+    suspend fun checkFaveMovieStatus(id: Int): Boolean
+    suspend fun clearFavourites()
+
+
     suspend fun getMovieGenres(): Result<List<MovieGenres>>
     suspend fun getMovieCast(movieId: Int): Result<List<MovieCast>>
+
     suspend fun loadMovieInfo(id: Int): Movie
 }

@@ -87,15 +87,7 @@
                 android:text="@string/popular"
                 tools:visibility="visible" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_upcoming"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/upcoming"
-                android:checkable="true"
-                tools:chipBackgroundColor="@android:color/transparent"
-                tools:chipStrokeColor="@color/colorAccent"
-                tools:chipStrokeWidth="1dp" />
+
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_now_playing"

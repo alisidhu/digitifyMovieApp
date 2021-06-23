@@ -1,4 +1,4 @@
-package com.movieapp.diditify.adapter
+package com.movieapp.diditify.utils
 
 import android.graphics.Typeface
 import android.widget.ImageView
@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.movieapp.diditify.R
-import com.movieapp.diditify.utils.Utils
+
 @BindingAdapter("overviewText")
 fun TextView.setOverView(msg: String?) {
 

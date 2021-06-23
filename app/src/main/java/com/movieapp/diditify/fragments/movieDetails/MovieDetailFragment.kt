@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.movieapp.diditify.R
 import com.movieapp.diditify.adapter.cast.CastAdapter
 import com.movieapp.diditify.adapter.cast.CastItemClickListener
-import com.movieapp.diditify.adapter.setImage
+import com.movieapp.diditify.utils.setImage
 import com.movieapp.diditify.databinding.FragmentMovieDetailBinding
 import com.movieapp.diditify.models.Movie
 import com.movieapp.diditify.models.MovieCast

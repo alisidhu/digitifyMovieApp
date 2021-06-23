@@ -1,10 +1,14 @@
+@file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+
 package com.movieapp.diditify.utils
 
+import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.*
 
 object Utils {
 
+    @SuppressLint("SimpleDateFormat")
     fun isCurrentYear(releaseDate: String): Boolean {
         return try {
             val calendar = Calendar.getInstance()

@@ -12,6 +12,7 @@
 
         android:title="@string/favourites" />
 
+
     <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/ic_baseline_settings_24"

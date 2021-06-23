@@ -102,7 +102,7 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
     }
 
     private fun initSearch() {
-        binding.txtSearchMovies.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+        binding.txtSearchMovies.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 
                 hideSoftKeyboard(v.windowToken)
@@ -131,7 +131,7 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
     }
 
     private fun initChipGroup() {
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+        binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
 
             when(checkedId){
                 R.id.chip_popular -> {
@@ -146,10 +146,7 @@ class MoviesListFragment : BaseFragment<FragmentMoviesListBinding>() {
                     fetchMovies(TOP_RATED_CATEGORY)
                     setupActionBarTitle(POPULAR_CATEGORY)
                 }
-                R.id.chip_upcoming -> {
-                    fetchMovies(UPCOMING_CATEGORY)
-                    setupActionBarTitle(UPCOMING_CATEGORY)
-                }
+
             }
         }
     }
